@@ -1,0 +1,392 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "mysql",
+  "tables": {
+    "antrean": {
+      "name": "antrean",
+      "columns": {
+        "id_antrean": {
+          "autoincrement": false,
+          "name": "id_antrean",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_pendaftaran": {
+          "autoincrement": false,
+          "name": "id_pendaftaran",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nomor_antrean": {
+          "autoincrement": false,
+          "name": "nomor_antrean",
+          "type": "varchar(10)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tgl_antrean": {
+          "autoincrement": false,
+          "name": "tgl_antrean",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status_antrean": {
+          "autoincrement": false,
+          "name": "status_antrean",
+          "type": "enum('menunggu','dipanggil','selesai')",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "waktu_panggil": {
+          "autoincrement": false,
+          "name": "waktu_panggil",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "antrean_id_antrean": {
+          "name": "antrean_id_antrean",
+          "columns": [
+            "id_antrean"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fk_antrean_pendaftaran": {
+          "name": "fk_antrean_pendaftaran",
+          "tableFrom": "antrean",
+          "tableTo": "pendaftaran",
+          "columnsFrom": [
+            "id_pendaftaran"
+          ],
+          "columnsTo": [
+            "id_pendaftaran"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {
+        "id_pendaftaran": {
+          "name": "id_pendaftaran",
+          "columns": [
+            "id_pendaftaran"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "dokter": {
+      "name": "dokter",
+      "columns": {
+        "id_dokter": {
+          "autoincrement": false,
+          "name": "id_dokter",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nama_dokter": {
+          "autoincrement": false,
+          "name": "nama_dokter",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_poli": {
+          "autoincrement": false,
+          "name": "id_poli",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "no_hp": {
+          "autoincrement": false,
+          "name": "no_hp",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "dokter_id_dokter": {
+          "name": "dokter_id_dokter",
+          "columns": [
+            "id_dokter"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fk_dokter_poli": {
+          "name": "fk_dokter_poli",
+          "tableFrom": "dokter",
+          "tableTo": "poli",
+          "columnsFrom": [
+            "id_poli"
+          ],
+          "columnsTo": [
+            "id_poli"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "pasien": {
+      "name": "pasien",
+      "columns": {
+        "id_pasien": {
+          "autoincrement": false,
+          "name": "id_pasien",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nik": {
+          "autoincrement": false,
+          "name": "nik",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "nama_pasien": {
+          "autoincrement": false,
+          "name": "nama_pasien",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jenis_kelamin": {
+          "autoincrement": false,
+          "name": "jenis_kelamin",
+          "type": "enum('L','P')",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tanggal_lahir": {
+          "autoincrement": false,
+          "name": "tanggal_lahir",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "no_hp": {
+          "autoincrement": false,
+          "name": "no_hp",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "alamat": {
+          "autoincrement": false,
+          "name": "alamat",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "pasien_id_pasien": {
+          "name": "pasien_id_pasien",
+          "columns": [
+            "id_pasien"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {
+        "nik": {
+          "name": "nik",
+          "columns": [
+            "nik"
+          ]
+        }
+      },
+      "checkConstraint": {}
+    },
+    "pendaftaran": {
+      "name": "pendaftaran",
+      "columns": {
+        "id_pendaftaran": {
+          "autoincrement": false,
+          "name": "id_pendaftaran",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "id_pasien": {
+          "autoincrement": false,
+          "name": "id_pasien",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_dokter": {
+          "autoincrement": false,
+          "name": "id_dokter",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tgl_kunjungan": {
+          "autoincrement": false,
+          "name": "tgl_kunjungan",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tgl_daftar": {
+          "autoincrement": false,
+          "name": "tgl_daftar",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "keluhan": {
+          "autoincrement": false,
+          "name": "keluhan",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "autoincrement": false,
+          "name": "status",
+          "type": "enum('terdaftar','dibatalkan')",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "pendaftaran_id_pendaftaran": {
+          "name": "pendaftaran_id_pendaftaran",
+          "columns": [
+            "id_pendaftaran"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fk_pendaftaran_dokter": {
+          "name": "fk_pendaftaran_dokter",
+          "tableFrom": "pendaftaran",
+          "tableTo": "dokter",
+          "columnsFrom": [
+            "id_dokter"
+          ],
+          "columnsTo": [
+            "id_dokter"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "cascade"
+        },
+        "fk_pendaftaran_pasien": {
+          "name": "fk_pendaftaran_pasien",
+          "tableFrom": "pendaftaran",
+          "tableTo": "pasien",
+          "columnsFrom": [
+            "id_pasien"
+          ],
+          "columnsTo": [
+            "id_pasien"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "cascade"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "petugas": {
+      "name": "petugas",
+      "columns": {
+        "id_petugas": {
+          "autoincrement": false,
+          "name": "id_petugas",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nama_petugas": {
+          "autoincrement": false,
+          "name": "nama_petugas",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "no_hp": {
+          "autoincrement": false,
+          "name": "no_hp",
+          "type": "varchar(15)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "petugas_id_petugas": {
+          "name": "petugas_id_petugas",
+          "columns": [
+            "id_petugas"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    },
+    "poli": {
+      "name": "poli",
+      "columns": {
+        "id_poli": {
+          "autoincrement": false,
+          "name": "id_poli",
+          "type": "int",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nama_poli": {
+          "autoincrement": false,
+          "name": "nama_poli",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "compositePrimaryKeys": {
+        "poli_id_poli": {
+          "name": "poli_id_poli",
+          "columns": [
+            "id_poli"
+          ]
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraint": {}
+    }
+  },
+  "views": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {},
+    "indexes": {}
+  }
+}

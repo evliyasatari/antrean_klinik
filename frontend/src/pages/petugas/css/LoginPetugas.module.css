@@ -1,0 +1,185 @@
+.pageWrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f4f8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 440px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(22, 51, 122, 0.08);
+  overflow: hidden; /* Agar sudut wave bawah mengikuti lengkungan kartu */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardContent {
+  padding: 36px 36px 20px 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.brandHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.logoBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: #eaf2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brandHeader h2 {
+  margin: 0 0 2px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #16337a;
+}
+
+.brandHeader p {
+  margin: 0;
+  font-size: 13px;
+  color: #5b6b8a;
+}
+
+.errorAlert {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  border: 1px solid #fecaca;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1b2a4a;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 11px 14px;
+  background-color: #ffffff;
+  transition: 0.2s;
+}
+
+.inputWrapper:focus-within {
+  border-color: #1e5eff;
+  box-shadow: 0 0 0 3px rgba(30, 94, 255, 0.12);
+}
+
+.inputWrapper input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #1b2a4a;
+}
+
+.eyeBtn {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.eyeBtn:hover {
+  color: #1e5eff;
+}
+
+.submitBtn {
+  margin-top: 6px;
+  width: 100%;
+  padding: 12px 18px;
+  background: linear-gradient(90deg, #16337a 0%, #1e5eff 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submitBtn:hover:not(:disabled) {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.footerLink {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footerLink a {
+  font-size: 13px;
+  color: #5b6b8a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footerLink a:hover {
+  color: #1e5eff;
+}
+
+/* Wave Bawah Kartu */
+.waveFooter {
+  width: 100%;
+  height: 85px;
+  margin-top: 4px;
+  line-height: 0;
+}
+
+.waveSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

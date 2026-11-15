@@ -1,0 +1,52 @@
+.divbottomNav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 412px;
+  background-color: #fff;
+  border-top: 1px solid #e3e9f3;
+  box-sizing: border-box;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 11px;
+  font-family: 'Poppins', sans-serif;
+  z-index: 20;
+}
+
+.divtab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: #8a94a6;
+  transition: color 0.15s ease;
+}
+
+.divtab:hover {
+  color: #1e5eff;
+}
+
+.divtabActive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: #1e5eff;
+}
+
+.text {
+  position: relative;
+  font-weight: 400;
+  color: #8a94a6;
+}
+
+.textActive {
+  position: relative;
+  font-weight: 600;
+  color: #1e5eff;
+}

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.pageWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.riwayat {
+  width: 100%;
+  max-width: 412px;
+  min-height: 917px;
+  position: relative;
+  background-color: #fff;
+  overflow-x: hidden;
+  text-align: left;
+  font-size: 18px;
+  color: #1b2a4a;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.divscreen {
+  position: relative;
+  background-color: #f4f8ff;
+  width: 100%;
+  min-height: 917px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 90px;
+  box-sizing: border-box;
+}
+
+.divappbar {
+  align-self: stretch;
+  height: 64px;
+  background-color: #1e5eff;
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  box-sizing: border-box;
+  gap: 12px;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.riwayatPemeriksaan {
+  position: relative;
+}
+
+.divcontent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 12px;
+  font-size: 13px;
+  color: #5b6b8a;
+}
+
+.divsubmargin {
+  align-self: stretch;
+  margin-bottom: 4px;
+}
+
+.divsub {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.daftarKunjunganAnda {
+  position: relative;
+}
+
+.divitem {
+  align-self: stretch;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 14px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.divitem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(30, 94, 255, 0.1);
+}
+
+.diviconCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background-color: #eaf2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.divmeta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.tanggalText {
+  color: #5b6b8a;
+  font-size: 12px;
+}
+
+.divname {
+  font-size: 14px;
+  color: #1b2a4a;
+}
+
+.poliText {
+  font-weight: 600;
+}
+
+.divbadge {
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 11px;
+  flex-shrink: 0;
+}

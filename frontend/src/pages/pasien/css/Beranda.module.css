@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.pageWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f7fb;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.beranda {
+  width: 100%;
+  max-width: 412px;
+  min-height: 917px;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+  text-align: left;
+  font-size: 18px;
+  color: #1b2a4a;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.divscreen {
+  position: relative;
+  width: 100%;
+  min-height: 917px;
+  background-color: #fff;
+  overflow: hidden;
+  padding-bottom: 90px;
+  box-sizing: border-box;
+}
+
+.divnavbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  box-sizing: border-box;
+}
+
+.divbrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.brandIcon {
+  flex-shrink: 0;
+}
+
+.clinic {
+  position: relative;
+}
+
+.menuBtn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.divhero {
+  position: relative;
+  width: 100%;
+  border-radius: 0px 0px 28px 28px;
+  background-color: #dce9ff;
+  height: 340px;
+  overflow: hidden;
+  font-size: 24px;
+}
+
+.selamatDatangDi {
+  position: absolute;
+  top: 32px;
+  left: 20px;
+  max-width: 210px; /* Batasi lebar agar tidak menabrak dokter */
+  line-height: 31.2px;
+  z-index: 2;
+}
+
+.daftarAntreanSecara {
+  position: absolute;
+  top: 138px;
+  left: 20px;
+  max-width: 200px; /* Batasi lebar teks deskripsi */
+  font-size: 13px;
+  line-height: 19.5px;
+  color: #4a5b7c;
+  z-index: 2;
+}
+
+.buttoncta {
+  position: absolute;
+  top: 210px; /* Sedikit diturunkan agar ada jarak dari teks */
+  left: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1e5eff;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  box-sizing: border-box;
+  gap: 8px;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.dokter1Icon {
+  position: absolute;
+  bottom: -10px;
+  right: -18px;
+  width: 245px;
+  height: 270px;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+.buttoncta:hover {
+  background-color: #1749cc;
+}
+
+.buttoncta:active {
+  transform: scale(0.97);
+}
+
+
+
+.divsection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 20px 0px;
+  box-sizing: border-box;
+  gap: 16px;
+  font-size: 16px;
+}
+
+.h2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 0px 1px;
+}
+
+.menuUtama {
+  align-self: stretch;
+  position: relative;
+}
+
+.divmenus {
+  align-self: stretch;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.divmenu,
+.divmenu3 {
+  flex: 1;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 8px;
+  gap: 9px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.divmenu:hover,
+.divmenu3:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(30, 94, 255, 0.12);
+}
+
+.diviconCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: #eaf2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.antreanOnline {
+  position: relative;
+  line-height: 15.6px;
+  font-weight: 500;
+}
+
+.divinfo {
+  margin: 24px 20px 0px;
+  border-radius: 16px;
+  background-color: #eaf2ff;
+  width: calc(100% - 40px);
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.frameIcon6 {
+  flex-shrink: 0;
+}
+
+.div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.jamPelayananSeninsabtuContainer {
+  position: relative;
+  line-height: 19.5px;
+}
+
+.jamPelayanan {
+  line-height: 19.5px;
+}
+
+.seninsabtu08001600Pend {
+  color: #4a5b7c;
+  line-height: 19.5px;
+}
+
+.divbottomNav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 412px;
+  background-color: #fff;
+  border-top: 1px solid #e3e9f3;
+  box-sizing: border-box;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  font-size: 11px;
+  color: #8a94a6;
+  z-index: 20;
+}
+
+.divtab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #1e5eff;
+  cursor: pointer;
+}
+
+.divtab2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.divtab2:hover {
+  color: #1e5eff;
+}
