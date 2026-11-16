@@ -21,13 +21,24 @@ router.post('/login', async (req, res) => {
       .where(and(eq(pasien.namaPasien, nama_pasien), eq(pasien.nik, nik)))
       .limit(1);
 
-    if (hasilPasien.length === 0) {
+    if (hasilPasien.length === 0 || !hasilPasien[0]) {
       return res.status(401).json({ message: 'Nama atau NIK salah! Pasien tidak ditemukan.' });
     }
 
+    const p = hasilPasien[0];
     return res.status(200).json({
       message: 'Login berhasil',
-      pasien: hasilPasien[0]
+      pasien: {
+        id_pasien: p.idPasien,
+        idPasien: p.idPasien,
+        nama_pasien: p.namaPasien,
+        namaPasien: p.namaPasien,
+        nik: p.nik,
+        jenis_kelamin: p.jenisKelamin,
+        tanggal_lahir: p.tanggalLahir,
+        no_hp: p.noHp,
+        alamat: p.alamat
+      }
     });
   } catch (error) {
     console.error('Error saat login pasien:', error);
@@ -44,19 +55,19 @@ router.post('/register', async (req, res) => {
       return res.status(400).json({ message: 'Semua kolom wajib diisi!' });
     }
 
-    // Masukkan data ke tabel pasien (tanggal_lahir langsung dikirim sebagai string karena mode: 'string')
+    // Masukkan data ke tabel pasien
     const newPasien = await db.insert(pasien).values({
       nik: nik,
       namaPasien: nama_pasien,
       jenisKelamin: jenis_kelamin,
-      tanggalLahir: tanggal_lahir, // <-- Langsung string (misal: "2001-05-12")
+      tanggalLahir: tanggal_lahir,
       noHp: no_hp,
       alamat: alamat
-    });
+    }).returning();
 
     return res.status(201).json({
       message: 'Registrasi berhasil',
-      data: newPasien
+      data: newPasien[0] || newPasien
     });
   } catch (error) {
     console.error('Error saat registrasi pasien:', error);
