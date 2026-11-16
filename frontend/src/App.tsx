@@ -15,7 +15,7 @@ import LoginPasien from './pages/pasien/LoginPasien';
 import RiwayatPasien from './pages/pasien/Riwayat';
 import StatusAntrean from './pages/pasien/Status';
 import NomorAntrean from './pages/pasien/NomorAntrean';
-// import AkunPasien from './pages/pasien/AkunPasien';
+import Akun from './pages/pasien/Akun';
 
 const PlaceholderPage = ({ title }: { title: string }) => (
   <div style={{ padding: '24px', background: '#fff', borderRadius: '16px', margin: '20px' }}>
@@ -38,7 +38,7 @@ export function App() {
         <Route path="/pasien/nomor-antrean" element={<NomorAntrean />} />
         <Route path="/pasien/status-antrean" element={<StatusAntrean/>} />
         <Route path="/pasien/riwayat" element={<RiwayatPasien/>} />
-        <Route path="/pasien/akun" element={<PlaceholderPage title="Akun Pasien" />} />
+        <Route path="/pasien/akun" element={<Akun/>} />
 
         {/* ================= ROUTES PETUGAS ================= */}
         <Route path="/petugas/login" element={<LoginPetugas />} />

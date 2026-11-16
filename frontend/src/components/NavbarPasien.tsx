@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Home, FileText, Clock } from 'lucide-react';
+import { Home, User, FileText, Clock } from 'lucide-react';
 import styles from './NavbarPasien.module.css';
 
 const BottomNav: FC = () => {
@@ -52,13 +52,13 @@ const BottomNav: FC = () => {
       </div>
 
       {/* Akun */}
-      {/* <div 
+      <div 
         className={isActive('/pasien/akun') ? styles.divtabActive : styles.divtab} 
         onClick={() => handleNavClick('/pasien/akun', true)}
       >
         <User size={22} color={isActive('/pasien/akun') ? '#1e5eff' : '#8a94a6'} />
         <span className={isActive('/pasien/akun') ? styles.textActive : styles.text}>Akun</span>
-      </div> */}
+      </div>
     </div>
   );
 };
