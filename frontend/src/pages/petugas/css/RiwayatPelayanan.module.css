@@ -150,6 +150,42 @@
   border-radius: 8px;
 }
 
+.badgeSelesai {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.badgeDipanggil {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badgeMenunggu {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
 .poliInfo {
   display: flex;
   flex-direction: column;

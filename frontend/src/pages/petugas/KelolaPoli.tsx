@@ -116,10 +116,6 @@ export default function KelolaPoli() {
       {/* Topbar */}
       <header className={styles.topbar}>
         <h1>Kelola Data</h1>
-        <div className={styles.userProfile}>
-          <span>Petugas Admin</span>
-          <div className={styles.avatar}>P</div>
-        </div>
       </header>
 
       {/* Panel Utama */}

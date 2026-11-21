@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Search, Calendar, CheckCircle2, Eye, X } from 'lucide-react';
+import { Search, Calendar, CheckCircle2, Eye, X, Clock, BellRing} from 'lucide-react';
 import api from '../../api/axios';
 import styles from './css/RiwayatPelayanan.module.css';
 
@@ -10,7 +10,7 @@ interface RiwayatItem {
   tgl_antrean: string;
   tgl_daftar: string;
   waktu_panggil: string | null;
-  status_antrean: 'selesai';
+  status_antrean: 'selesai' | 'dipanggil' | 'menunggu';
   nik: string;
   nama_pasien: string;
   jenis_kelamin: 'L' | 'P';
@@ -57,7 +57,7 @@ export default function RiwayatPelayanan() {
         keluhan: item.keluhan ?? '',
         nama_petugas: item.nama_petugas ?? item.namaPetugas ?? null,
       }));
-
+      
       setRiwayatList(formattedData);
     } catch (error: any) {
       console.error('Gagal mengambil data riwayat:', error);
@@ -114,15 +114,38 @@ export default function RiwayatPelayanan() {
     });
   };
 
+  const renderStatusBadge = (status: RiwayatItem['status_antrean']) => {
+    if (status === 'selesai') {
+      return (
+        <span className={styles.badgeSelesai}>
+          <CheckCircle2 size={13} />
+          <span>Selesai</span>
+        </span>
+      );
+    }
+
+    if (status === 'dipanggil') {
+      return (
+        <span className={styles.badgeDipanggil}>
+          <BellRing size={13} />
+          <span>Dipanggil</span>
+        </span>
+      );
+    }
+
+    return (
+      <span className={styles.badgeMenunggu}>
+        <Clock size={13} />
+        <span>Menunggu</span>
+      </span>
+    );
+  };
+
   return (
     <div>
       {/* Topbar */}
       <header className={styles.topbar}>
         <h1>Riwayat Pelayanan</h1>
-        <div className={styles.userProfile}>
-          <span>Petugas Admin</span>
-          <div className={styles.avatar}>P</div>
-        </div>
       </header>
 
       {/* Panel Utama */}
@@ -218,12 +241,9 @@ export default function RiwayatPelayanan() {
                         <small>{item.nama_dokter}</small>
                       </div>
                     </td>
-                    <td>
-                      <span className={styles.badgeSelesai}>
-                        <CheckCircle2 size={13} />
-                        <span>Selesai</span>
-                      </span>
-                    </td>
+
+                    <td>{renderStatusBadge(item.status_antrean)}</td>
+
                     <td>
                       <button
                         className={styles.detailBtn}

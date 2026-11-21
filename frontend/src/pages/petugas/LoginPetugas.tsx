@@ -68,7 +68,7 @@ export default function LoginPetugas() {
                   required
                   value={namaPetugas}
                   onChange={(e) => setNamaPetugas(e.target.value)}
-                  placeholder="Masukkan nama lengkap petugas"
+                  placeholder="Masukkan nama lengkap"
                 />
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function LoginPetugas() {
                     const hanyaAngka = e.target.value.replace(/\D/g, '');
                     setNip(hanyaAngka);
                   }}
-                  placeholder="Masukkan NIP (hanya angka)"
+                  placeholder="Masukkan NIP"
                 />
                 <button
                   type="button"

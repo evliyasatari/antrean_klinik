@@ -30,7 +30,7 @@ router.get('/', async (_req, res) => {
       .leftJoin(pasien, eq(pendaftaran.idPasien, pasien.idPasien))
       .leftJoin(dokter, eq(pendaftaran.idDokter, dokter.idDokter))
       .leftJoin(poli, eq(dokter.idPoli, poli.idPoli))
-      .orderBy(asc(antrean.idAntrean));
+      .orderBy(asc(antrean.idAntrean)); // 
 
     const formatted = list.map((a) => ({
       id_antrean: a.idAntrean,

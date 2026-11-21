@@ -4,7 +4,6 @@ import { Users, List, User, CheckCircle2 } from 'lucide-react';
 import api from '../../api/axios.ts';
 import styles from './css/Dashboard.module.css';
 
-// Tipe data yang diharapkan dari respons API backend
 interface DashboardStats {
   totalPasien: number;
   dalamAntrean: number;
@@ -19,10 +18,29 @@ interface AntreanPoliItem {
   estimasi: string;
 }
 
+interface PetugasData {
+  idPetugas?: number;
+  id_petugas?: number;
+  nip?: string;
+  namaPetugas?: string;
+  nama_petugas?: string;
+  noHp?: string;
+  no_hp?: string;
+}
+
+const getStoredPetugas = (): PetugasData | null => {
+  try {
+    const raw = localStorage.getItem('petugas');
+    return raw ? (JSON.parse(raw) as PetugasData) : null;
+  } catch {
+    return null;
+  }
+};
+
 export default function Dashboard() {
   const navigate = useNavigate();
 
-  // State untuk menampung data dari backend
+  const [petugas, setPetugas] = useState<PetugasData | null>(getStoredPetugas);
   const [statsData, setStatsData] = useState<DashboardStats>({
     totalPasien: 0,
     dalamAntrean: 0,
@@ -33,19 +51,25 @@ export default function Dashboard() {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Mengambil data saat halaman pertama kali dibuka
   useEffect(() => {
+    // Sinkronkan ulang jika ada perubahan di localStorage
+    setPetugas(getStoredPetugas());
+
     const fetchDashboardData = async () => {
       try {
         setLoading(true);
         setError(null);
 
-        // Panggil endpoint API backend Anda (sesuaikan URL endpoint jika berbeda)
         const response = await api.get('/petugas/dashboard');
 
-        // Asumsi format JSON dari backend: { stats: {...}, antreanPoli: [...] }
         setStatsData(response.data.stats);
         setAntreanPoli(response.data.antreanPoli);
+
+        // Jika backend juga mengirimkan data petugas terbaru, ikut perbarui
+        if (response.data.petugas) {
+          setPetugas(response.data.petugas);
+          localStorage.setItem('petugas', JSON.stringify(response.data.petugas));
+        }
       } catch (err) {
         console.error('Gagal memuat data dashboard:', err);
         setError('Gagal mengambil data dari server. Pastikan backend menyala.');
@@ -57,7 +81,9 @@ export default function Dashboard() {
     fetchDashboardData();
   }, []);
 
-  // Susun konfigurasi kartu berdasarkan state statsData
+const namaPetugasTampil = (petugas?.namaPetugas ?? petugas?.nama_petugas)?.trim() || 'Petugas Admin';
+const inisialPetugas = namaPetugasTampil.charAt(0).toUpperCase() || 'P';
+
   const statsCards = [
     { label: 'Total Pasien', value: statsData.totalPasien, color: '#2563eb', bg: '#eff6ff', icon: <Users size={20} color="#2563eb" /> },
     { label: 'Dalam Antrean', value: statsData.dalamAntrean, color: '#ea580c', bg: '#fff7ed', icon: <List size={20} color="#ea580c" /> },
@@ -71,8 +97,8 @@ export default function Dashboard() {
       <header className={styles.topbar}>
         <h1>Dashboard</h1>
         <div className={styles.userProfile}>
-          <span>Petugas Admin</span>
-          <div className={styles.avatar}>P</div>
+          <span>{namaPetugasTampil}</span>
+          <div className={styles.avatar}>{inisialPetugas}</div>
         </div>
       </header>
 

@@ -154,10 +154,6 @@ export default function DaftarAntrean() {
       {/* Topbar */}
       <header className={styles.topbar}>
         <h1>Daftar Antrean</h1>
-        <div className={styles.userProfile}>
-          <span>Petugas Admin</span>
-          <div className={styles.avatar}>P</div>
-        </div>
       </header>
 
       {/* Panel Utama */}
